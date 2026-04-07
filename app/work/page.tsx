@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Work — Kova Digital",
@@ -12,6 +13,7 @@ const projects = [
     description:
       "A deep-dive guide covering programmatic SEO strategy, technical implementation, and real-world examples from Zapier, Tripadvisor, and NomadList. Written for founders and growth teams.",
     tag: "Content & SEO",
+    href: "/work/programmatic-seo",
   },
   {
     name: "7 Best Project Management Tools for Remote Teams",
@@ -20,6 +22,7 @@ const projects = [
     description:
       "A ranked, research-backed comparison of the top project management tools for remote teams in 2026. Covers pricing, pros/cons, and use-case fit.",
     tag: "Content & SEO",
+    href: "/work/project-management-tools",
   },
   {
     name: "AI-Powered Content Creation Tools — Market Landscape Report",
@@ -28,6 +31,7 @@ const projects = [
     description:
       "A full market landscape report covering the AI content creation space — competitor analysis, market sizing, pricing strategy, and go-to-market insights. Executive summary included.",
     tag: "Market Intelligence",
+    href: "/work/market-research-report",
   },
 ];
 
@@ -40,9 +44,10 @@ export default function Work() {
       </p>
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
-          <div
+          <Link
             key={project.name}
-            className="rounded-xl border border-white/5 bg-surface p-8 transition-colors hover:border-white/10"
+            href={project.href}
+            className="block rounded-xl border border-white/5 bg-surface p-8 transition-colors hover:border-white/10 hover:border-accent/30"
           >
             <div
               className="mb-4 h-2 w-12 rounded-full"
@@ -58,7 +63,8 @@ export default function Work() {
             <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               {project.description}
             </p>
-          </div>
+            <p className="mt-4 text-xs font-medium text-accent">View sample →</p>
+          </Link>
         ))}
       </div>
     </div>

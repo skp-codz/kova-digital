@@ -8,9 +8,9 @@ const stats = [
 ];
 
 const featuredWork = [
-  { name: "How Programmatic SEO Can 10x Your Organic Traffic", type: "Content · SEO Article", color: "#3B82F6" },
-  { name: "7 Best Project Management Tools for Remote Teams", type: "Content · Comparison Article", color: "#10B981" },
-  { name: "AI-Powered Content Creation Tools — Market Landscape Report", type: "Market Research · Intelligence Report", color: "#8B5CF6" },
+  { name: "How Programmatic SEO Can 10x Your Organic Traffic", type: "Content · SEO Article", color: "#3B82F6", href: "/work/programmatic-seo" },
+  { name: "7 Best Project Management Tools for Remote Teams", type: "Content · Comparison Article", color: "#10B981", href: "/work/project-management-tools" },
+  { name: "AI-Powered Content Creation Tools — Market Landscape Report", type: "Market Research · Intelligence Report", color: "#8B5CF6", href: "/work/market-research-report" },
 ];
 
 const steps = [
@@ -83,9 +83,10 @@ export default function Home() {
         <h2 className="text-2xl font-bold">Featured Work</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featuredWork.map((project) => (
-            <div
+            <Link
               key={project.name}
-              className="group relative overflow-hidden rounded-xl border border-white/5 bg-surface p-8 transition-colors hover:border-white/10"
+              href={project.href}
+              className="group relative overflow-hidden rounded-xl border border-white/5 bg-surface p-8 transition-colors hover:border-white/10 hover:border-accent/30"
             >
               <div
                 className="mb-4 h-2 w-12 rounded-full"
@@ -93,7 +94,8 @@ export default function Home() {
               />
               <h3 className="text-lg font-semibold leading-snug">{project.name}</h3>
               <p className="mt-1 text-sm text-zinc-400">{project.type}</p>
-            </div>
+              <p className="mt-3 text-xs font-medium text-accent opacity-0 transition-opacity group-hover:opacity-100">View sample →</p>
+            </Link>
           ))}
         </div>
         <div className="mt-8">
