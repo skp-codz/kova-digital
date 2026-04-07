@@ -44,15 +44,20 @@ export default function Contact() {
     const data = new FormData(form);
     const name = data.get("name") as string;
     const email = data.get("email") as string;
+    const service = data.get("service") as string;
+    const budget = data.get("budget") as string;
     const message = data.get("message") as string;
 
     const subject = encodeURIComponent(`New inquiry from ${name}`);
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`
+      `Name: ${name}\nEmail: ${email}\nService: ${service}\nBudget: ${budget}\n\n${message}`
     );
     window.location.href = `mailto:hello@kova-digital.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   }
+
+  const selectClass =
+    "w-full rounded-lg border border-white/10 bg-zinc-900 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-accent appearance-none";
 
   return (
     <div className="animate-fade-in-up mx-auto max-w-6xl px-6 py-24">
@@ -90,7 +95,7 @@ export default function Contact() {
             </h3>
             <p className="mt-2 text-sm text-zinc-400">
               Your email client should have opened. We&apos;ll get back to you
-              within 24 hours.
+              within 4 hours.
             </p>
           </div>
         ) : (
@@ -120,6 +125,33 @@ export default function Contact() {
                 className="w-full rounded-lg border border-white/10 bg-surface px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-colors focus:border-accent"
                 placeholder="you@example.com"
               />
+            </div>
+            <div>
+              <label htmlFor="service" className="mb-2 block text-sm font-medium">
+                Service Interested In
+              </label>
+              <select id="service" name="service" required className={selectClass}>
+                <option value="" disabled selected>Select a service</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Content & SEO">Content &amp; SEO</option>
+                <option value="Market Intelligence">Market Intelligence</option>
+                <option value="Email Sequences">Email Sequences</option>
+                <option value="Programmatic SEO">Programmatic SEO</option>
+                <option value="SaaS Development">SaaS Development</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="budget" className="mb-2 block text-sm font-medium">
+                Budget Range
+              </label>
+              <select id="budget" name="budget" required className={selectClass}>
+                <option value="" disabled selected>Select a budget</option>
+                <option value="Under $500">Under $500</option>
+                <option value="$500–$1,000">$500–$1,000</option>
+                <option value="$1,000–$5,000">$1,000–$5,000</option>
+                <option value="$5,000+">$5,000+</option>
+              </select>
             </div>
             <div>
               <label

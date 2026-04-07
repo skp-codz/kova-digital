@@ -6,32 +6,28 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    name: "DevToolScout",
-    type: "Affiliate · Content Site",
+    name: "How Programmatic SEO Can 10x Your Organic Traffic",
+    type: "Content · SEO Article",
     color: "#3B82F6",
     description:
-      "A curated directory of developer tools with in-depth reviews, comparison pages, and affiliate monetization.",
+      "A deep-dive guide covering programmatic SEO strategy, technical implementation, and real-world examples from Zapier, Tripadvisor, and NomadList. Written for founders and growth teams.",
+    tag: "Content & SEO",
   },
   {
-    name: "ProblemRadar",
-    type: "Micro SaaS",
+    name: "7 Best Project Management Tools for Remote Teams",
+    type: "Content · Comparison Article",
     color: "#10B981",
     description:
-      "Monitors Reddit, Twitter, and forums to surface problems people are willing to pay to solve.",
+      "A ranked, research-backed comparison of the top project management tools for remote teams in 2026. Covers pricing, pros/cons, and use-case fit.",
+    tag: "Content & SEO",
   },
   {
-    name: "HR Software Directory",
-    type: "Programmatic SEO",
+    name: "AI-Powered Content Creation Tools — Market Landscape Report",
+    type: "Market Research · Intelligence Report",
     color: "#8B5CF6",
     description:
-      "Auto-generated landing pages targeting 2,000+ long-tail HR software keywords, driving 40k monthly visits.",
-  },
-  {
-    name: "First Customer OS",
-    type: "Micro SaaS",
-    color: "#F59E0B",
-    description:
-      "A step-by-step system that helps indie makers find and close their first 10 paying customers.",
+      "A full market landscape report covering the AI content creation space — competitor analysis, market sizing, pricing strategy, and go-to-market insights. Executive summary included.",
+    tag: "Market Intelligence",
   },
 ];
 
@@ -52,7 +48,10 @@ export default function Work() {
               className="mb-4 h-2 w-12 rounded-full"
               style={{ backgroundColor: project.color }}
             />
-            <h3 className="text-xl font-semibold">{project.name}</h3>
+            <span className="inline-block rounded-full border border-white/10 bg-zinc-900 px-2 py-0.5 text-xs text-zinc-400">
+              {project.tag}
+            </span>
+            <h3 className="mt-3 text-xl font-semibold">{project.name}</h3>
             <p className="mt-1 text-sm font-medium text-zinc-400">
               {project.type}
             </p>
