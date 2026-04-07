@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Work — Kova Digital",
 };
 
-const projects = [
+const projects: { name: string; type: string; color: string; description: string; tag: string; href: string }[] = [
   {
     name: "How Programmatic SEO Can 10x Your Organic Traffic",
     type: "Content · SEO Article",
@@ -33,6 +33,33 @@ const projects = [
     tag: "Market Intelligence",
     href: "/work/market-research-report",
   },
+  {
+    name: "Flowdesk — SaaS Landing Page",
+    type: "Web Development · SaaS Landing Page",
+    color: "#F97316",
+    description:
+      "A full SaaS product landing page with hero, feature grid, testimonials, and pricing table. Dark modern aesthetic. Built to demonstrate what a professional $350+ web dev deliverable looks like.",
+    tag: "Web Development",
+    href: "/work/sample-landing-page",
+  },
+  {
+    name: "SaaS Onboarding Email Sequence",
+    type: "Email Sequences · 5-Email Flow",
+    color: "#EF4444",
+    description:
+      "A 5-email onboarding sequence for a fictional SaaS product — welcome, activation, engagement, expansion, and trial conversion. Full copy, subject lines, preview text, and strategy notes.",
+    tag: "Email Sequences",
+    href: "/work/email-sequences",
+  },
+  {
+    name: "Project Management Tools Directory",
+    type: "Programmatic SEO · Live Demo",
+    color: "#10B981",
+    description:
+      "A live programmatic SEO directory demo. 12 tools, ratings, and filters — all generated from structured data. Shows exactly how we build scalable, SEO-optimized directory sites.",
+    tag: "Programmatic SEO",
+    href: "/work/programmatic-seo-demo",
+  },
 ];
 
 export default function Work() {
@@ -42,7 +69,7 @@ export default function Work() {
       <p className="mt-4 max-w-xl text-zinc-400">
         A selection of projects we&apos;ve built and shipped.
       </p>
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <Link
             key={project.name}
